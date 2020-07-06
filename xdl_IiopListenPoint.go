@@ -5,7 +5,6 @@ package goIdlIiop
 import __goidl__ "github.com/bhbosman/goidl"
 import __json__ "encoding/json"
 import __reflect__ "reflect"
-import __yaccidl__ "github.com/bhbosman/yaccidl"
 
 // Struct declaration: "IIOP::ListenPoint", generatedBy by: "WriteStructDcl"
 // Exception Decl: false
@@ -17,50 +16,6 @@ type IiopListenPoint struct {
 
 //noinspection GoSnakeCaseUsage
 const IiopListenPointId_Const = "IDL:omg.org/IIOP/ListenPoint:1.0"
-
-//noinspection GoUnusedExportedFunction
-func NewDefaultIiopListenPoint() *IiopListenPoint {
-	//noinspection GoRedundantConversion
-	return &IiopListenPoint{
-		IdlObject: __goidl__.IdlObject{
-			Id: IiopListenPointId_Const,
-		},
-		// "StructDclDefaultConstructorMemberDefaultValueService", MemberName: "host", Type: "IdlString" Scope: "StringType"
-		Host: "",
-		// "StructDclDefaultConstructorMemberDefaultValueService", MemberName: "port", Type: "IdlUnsignedShort" Scope: "UnsignedShortType"
-		Port: 0,
-	}
-}
-
-//noinspection GoUnusedExportedFunction
-func NewIiopListenPoint(
-	//"StructDclAllParamsConstructorParamService"
-	Host string,
-	//"StructDclAllParamsConstructorParamService"
-	Port uint16) *IiopListenPoint {
-	//noinspection GoRedundantConversion
-	return &IiopListenPoint{
-		IdlObject: __goidl__.IdlObject{
-			Id: IiopListenPointId_Const,
-		},
-		Host: Host,
-		Port: Port,
-	}
-}
-
-//noinspection GoUnusedExportedFunction
-func NewRandomIiopListenPoint(randomGenerator __goidl__.IRandomDataGenerator) *IiopListenPoint {
-	//noinspection GoRedundantConversion
-	return &IiopListenPoint{
-		IdlObject: __goidl__.IdlObject{
-			Id: IiopListenPointId_Const,
-		},
-		// "StructDclDefaultConstructorMemberDefaultValueService", MemberName: "host", Type: "IdlString" Scope: "StringType"
-		Host: randomGenerator.StringTypeValue(__reflect__.TypeOf((*IiopListenPoint)(nil)), "Host"),
-		// "StructDclDefaultConstructorMemberDefaultValueService", MemberName: "port", Type: "IdlUnsignedShort" Scope: "UnsignedShortType"
-		Port: randomGenerator.UnsignedShortTypeValue(__reflect__.TypeOf((*IiopListenPoint)(nil)), "Port"),
-	}
-}
 
 func (self *IiopListenPoint) String() string {
 	b, err := __json__.Marshal(self)
@@ -132,13 +87,14 @@ func init() {
 	__goidl__.AddRegistration(
 		__goidl__.NewRegistrationInformation(
 			IiopListenPointId_Const,
-			__yaccidl__.IdlStruct,
-			"IIOP.idl.ListenPoint.go",
+			__goidl__.StructType,
+			"IIOP.idl",
+			"xdl_IiopListenPoint.go",
 			func() __goidl__.IIdlObject {
-				return NewDefaultIiopListenPoint()
+				return &IiopListenPoint{}
 			},
 			func(generator __goidl__.IRandomDataGenerator) __goidl__.IIdlObject {
-				return NewRandomIiopListenPoint(generator)
+				return &IiopListenPoint{}
 			},
 			__reflect__.TypeOf((*IiopListenPoint)(nil))))
 }

@@ -5,7 +5,6 @@ package goIdlIiop
 import __goidl__ "github.com/bhbosman/goidl"
 import __json__ "encoding/json"
 import __reflect__ "reflect"
-import __yaccidl__ "github.com/bhbosman/yaccidl"
 
 // Struct declaration: "IIOP::Version", generatedBy by: "WriteStructDcl"
 // Exception Decl: false
@@ -17,50 +16,6 @@ type IiopVersion struct {
 
 //noinspection GoSnakeCaseUsage
 const IiopVersionId_Const = "IDL:omg.org/IIOP/Version:1.0"
-
-//noinspection GoUnusedExportedFunction
-func NewDefaultIiopVersion() *IiopVersion {
-	//noinspection GoRedundantConversion
-	return &IiopVersion{
-		IdlObject: __goidl__.IdlObject{
-			Id: IiopVersionId_Const,
-		},
-		// "StructDclDefaultConstructorMemberDefaultValueService", MemberName: "major", Type: "IdlOctet" Scope: "IdlOctetKind"
-		Major: 0,
-		// "StructDclDefaultConstructorMemberDefaultValueService", MemberName: "minor", Type: "IdlOctet" Scope: "IdlOctetKind"
-		Minor: 0,
-	}
-}
-
-//noinspection GoUnusedExportedFunction
-func NewIiopVersion(
-	//"StructDclAllParamsConstructorParamService"
-	Major byte,
-	//"StructDclAllParamsConstructorParamService"
-	Minor byte) *IiopVersion {
-	//noinspection GoRedundantConversion
-	return &IiopVersion{
-		IdlObject: __goidl__.IdlObject{
-			Id: IiopVersionId_Const,
-		},
-		Major: Major,
-		Minor: Minor,
-	}
-}
-
-//noinspection GoUnusedExportedFunction
-func NewRandomIiopVersion(randomGenerator __goidl__.IRandomDataGenerator) *IiopVersion {
-	//noinspection GoRedundantConversion
-	return &IiopVersion{
-		IdlObject: __goidl__.IdlObject{
-			Id: IiopVersionId_Const,
-		},
-		// "StructDclDefaultConstructorMemberDefaultValueService", MemberName: "major", Type: "IdlOctet" Scope: "IdlOctetKind"
-		Major: randomGenerator.OctetTypeValue(__reflect__.TypeOf((*IiopVersion)(nil)), "Major"),
-		// "StructDclDefaultConstructorMemberDefaultValueService", MemberName: "minor", Type: "IdlOctet" Scope: "IdlOctetKind"
-		Minor: randomGenerator.OctetTypeValue(__reflect__.TypeOf((*IiopVersion)(nil)), "Minor"),
-	}
-}
 
 func (self *IiopVersion) String() string {
 	b, err := __json__.Marshal(self)
@@ -132,13 +87,14 @@ func init() {
 	__goidl__.AddRegistration(
 		__goidl__.NewRegistrationInformation(
 			IiopVersionId_Const,
-			__yaccidl__.IdlStruct,
-			"IIOP.idl.Version.go",
+			__goidl__.StructType,
+			"IIOP.idl",
+			"xdl_IiopVersion.go",
 			func() __goidl__.IIdlObject {
-				return NewDefaultIiopVersion()
+				return &IiopVersion{}
 			},
 			func(generator __goidl__.IRandomDataGenerator) __goidl__.IIdlObject {
-				return NewRandomIiopVersion(generator)
+				return &IiopVersion{}
 			},
 			__reflect__.TypeOf((*IiopVersion)(nil))))
 }
